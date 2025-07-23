@@ -73,10 +73,14 @@ public class GameStats : MonoBehaviour
 
 
     public void LevelStart(int level){
-        if(level == 1)
+        if (level == 1)
         {
             Console.WriteLine($"LEVEL STARTED: {level}");
-            Instantiate(enemy_A,spawn[1,0].transform.position,transform.rotation);
+            Instantiate(enemy_A, spawn[1, 0].transform.position, transform.rotation);
+            Instantiate(enemy_A, spawn[1, 1].transform.position, transform.rotation);
+            Instantiate(enemy_A, spawn[1, 3].transform.position, transform.rotation);
+            Instantiate(enemy_A, spawn[1, 4].transform.position, transform.rotation);
+            
         }
 
 

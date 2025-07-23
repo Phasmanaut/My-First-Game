@@ -137,7 +137,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -276,6 +276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bddd09904c9bfc429f775b30578055e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 2479554322019089208, guid: d1ba4b02a33bf7344ac3280213f7228f, type: 3}
+  speed: 0.5
+  duration: 3
 --- !u!1 &388781498432764677
 GameObject:
   m_ObjectHideFlags: 0

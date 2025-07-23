@@ -8,13 +8,14 @@ public class Enemy_A : MonoBehaviour
 
     }
 
+    public GameObject projectile;
 
     public float speed = 0.5f;
     public float duration = 3f;
     private float timeElapsed = 0f;
     private bool moveRight = true;
 
-    void Update()
+    void Update() //idle movemets
     {
         timeElapsed += Time.deltaTime;
 
@@ -31,12 +32,14 @@ public class Enemy_A : MonoBehaviour
         {
             moveRight = !moveRight; // Swap direction
             timeElapsed = 0f; // Reset timer
+
+            Instantiate(projectile,this.transform);
         }
     }
 
 
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision col)  //killed on hit
     {
         if (col.gameObject.tag == "Player Projectile")
         {
