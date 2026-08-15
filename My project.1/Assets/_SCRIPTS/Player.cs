@@ -33,12 +33,12 @@ public class Player : MonoBehaviour
 
 
         // Adjust target rotation based on input & changes Player movement
-        if (right && !left)
+        if (right && !left && pos.x <= 5.75)
         {
             targetRotationY = Mathf.Clamp(targetRotationY - rotationSpeed * Time.deltaTime, -maxRotationAngle, maxRotationAngle);
             pos.x += speed * Time.deltaTime;
         }
-        else if (left && !right)
+        else if (left && !right && pos.x >= -5.75)
         {
             targetRotationY = Mathf.Clamp(targetRotationY + rotationSpeed * Time.deltaTime, -maxRotationAngle, maxRotationAngle);
             pos.x -= speed * Time.deltaTime;
