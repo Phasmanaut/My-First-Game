@@ -8,16 +8,17 @@ using UnityEngine.UIElements;
 
 public class Projectile_A : MonoBehaviour
 {
-    public float projSpeed;
+    
+    public float projSpeed; //speed of the bullet
 
-    void Start()
+    void Start() //when the bullet is spawned point at player
     {
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.FindWithTag("Player");
         transform.LookAt(player.transform);
         transform.SetParent(null);
     }
 
-    void Update()
+    void Update() //go forward forever till hit
     {
         transform.Translate(transform.forward * projSpeed * Time.deltaTime, Space.World);
     }

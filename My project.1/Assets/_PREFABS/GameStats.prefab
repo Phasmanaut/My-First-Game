@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1622568657926103646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4832387266847190119}
+  - component: {fileID: 835090673510402421}
+  m_Layer: 0
+  m_Name: GameStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4832387266847190119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622568657926103646}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &835090673510402421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622568657926103646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c1422c318681d4587654b1f80440e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: -9
+  level: 1
+  playerCharge: 0
+  timer: 0
+  healthUI: {fileID: 0}
+  timerUI: {fileID: 0}
+  levelUI: {fileID: 0}
+  chargeUI: {fileID: 0}
+  screenText: {fileID: 0}
+  cube_die: {fileID: 0}
+  player: {fileID: 240526453248250000, guid: 1d31a25c36de460418a9ee11896c0877, type: 3}
+  enemy_A: {fileID: 249807260575531700, guid: 0e6c2d25ad5c7c640a7c4a7891e75ec5, type: 3}
+  spawn0x1: {fileID: 0}
+  spawn0x2: {fileID: 0}
+  spawn0x3: {fileID: 0}
+  spawn0x4: {fileID: 0}
+  spawn0x5: {fileID: 0}
+  spawn1x1: {fileID: 0}
+  spawn1x2: {fileID: 0}
+  spawn1x3: {fileID: 0}
+  spawn1x4: {fileID: 0}
+  spawn1x5: {fileID: 0}
+  spawn2x1: {fileID: 0}
+  spawn2x2: {fileID: 0}
+  spawn2x3: {fileID: 0}
+  spawn2x4: {fileID: 0}
+  spawn2x5: {fileID: 0}
+  spawn3x1: {fileID: 0}
+  spawn3x2: {fileID: 0}
+  spawn3x3: {fileID: 0}
+  spawn3x4: {fileID: 0}
+  spawn3x5: {fileID: 0}

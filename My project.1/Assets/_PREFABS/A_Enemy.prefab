@@ -152,11 +152,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249807260575531700}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3e150cb259a5e924cad986c5334adf12, type: 3}
-  m_Resource: {fileID: 8300000, guid: 3e150cb259a5e924cad986c5334adf12, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 53146ed43a13e654197a5c01fae1c24c, type: 3}
+  m_Resource: {fileID: 8300000, guid: 53146ed43a13e654197a5c01fae1c24c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -277,6 +277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 2479554322019089208, guid: d1ba4b02a33bf7344ac3280213f7228f, type: 3}
+  death: {fileID: 8300000, guid: 53146ed43a13e654197a5c01fae1c24c, type: 3}
+  audiosource: {fileID: 0}
   speed: 0.5
   duration: 3
 --- !u!1 &388781498432764677

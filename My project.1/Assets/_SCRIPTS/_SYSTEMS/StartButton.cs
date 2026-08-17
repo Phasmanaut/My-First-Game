@@ -6,12 +6,16 @@ using UnityEngine.UIElements;
 
 public class StartButton : MonoBehaviour
 {
+    private GameStats gameStats;
+    public GameObject startCube;
+
+
     void Start()
     {
-
-
+        gameStats = GameObject.FindWithTag("GameStats").GetComponent<GameStats>();// gets the script from the object
+        transform.position = new Vector3(0, 4f ,0);
     }
-
+    
 
     bool bl = true;
     void Update()
@@ -26,7 +30,6 @@ public class StartButton : MonoBehaviour
         {
             transform.localScale += scale * Time.deltaTime * .5f;
             if (scale.x >= .5) { bl = false; scale.x = .5f; }
-
         }
 
         if (scale.x > .2 && !bl)
@@ -38,13 +41,12 @@ public class StartButton : MonoBehaviour
     }
 
 
-    public GameStats trigger;
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Player Projectile")
         {
-            trigger.StartLevelHit();
-            Destroy(this.gameObject);
+            gameStats.StartLevelHit();
+            Destroy(startCube);
         }
     }
 

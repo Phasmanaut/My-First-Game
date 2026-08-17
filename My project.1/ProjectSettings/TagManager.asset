@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Destroy
   - Player Projectile
+  - EnemyProjectile
+  - GameStats
   layers:
   - Default
   - TransparentFX

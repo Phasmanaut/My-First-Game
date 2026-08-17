@@ -1,5 +1,6 @@
 using System;
 using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Quaternion = UnityEngine.Quaternion;
@@ -10,9 +11,12 @@ public class Player : MonoBehaviour
     public float speed = 5f;
     public float rotation = .05f;
 
+    private GameStats gameStats;
+
     void Start()
     {
-        transform.position = new Vector3(0, 0.5f, 0); //start position
+        transform.position = new Vector3(0, 0.5f, 0);
+        gameStats = GameObject.FindWithTag("GameStats").GetComponent<GameStats>();// gets the script from the object
     }
 
 
@@ -57,5 +61,14 @@ public class Player : MonoBehaviour
 
     }
 
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("EnemyProjectile"))
+        {
+            gameStats.PlayerHit();
+            ExplosionEffect explosion = gameObject.AddComponent<ExplosionEffect>();
+            explosion.Explode(ExplosionType.Player);
+        }
+    }
 
 }
