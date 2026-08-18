@@ -5,24 +5,20 @@ using Unity.Mathematics;
 using UnityEngine.UIElements;
 
 
-
 public class Projectile_A : MonoBehaviour
 {
-    
-    public float projSpeed; //speed of the bullet
 
+    public float projSpeed; //speed of the bullet
     void Start() //when the bullet is spawned point at player
     {
         GameObject player = GameObject.FindWithTag("Player");
         transform.LookAt(player.transform);
         transform.SetParent(null);
     }
-
     void Update() //go forward forever till hit
     {
         transform.Translate(transform.forward * projSpeed * Time.deltaTime, Space.World);
     }
-
     private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Destroy")
@@ -34,6 +30,5 @@ public class Projectile_A : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    
-    
+
 }

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -4506902337022092965}
   m_Layer: 0
   m_Name: A_Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,7 +278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 2479554322019089208, guid: d1ba4b02a33bf7344ac3280213f7228f, type: 3}
   death: {fileID: 8300000, guid: 53146ed43a13e654197a5c01fae1c24c, type: 3}
-  audiosource: {fileID: 0}
+  shoot: {fileID: 8300000, guid: 384adb934760d1a40b151ebad7174e74, type: 3}
+  pointWorth: 10
   speed: 0.5
   duration: 3
 --- !u!1 &388781498432764677

@@ -4849,7 +4849,7 @@ GameObject:
   - component: {fileID: 1051836864282031209}
   m_Layer: 0
   m_Name: StartCube
-  m_TagString: Untagged
+  m_TagString: Destroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4956,7 +4956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b94f58fcc384d449b42b9b892527ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube_die: {fileID: 5334324958215913461, guid: 712a6ae1285624c47abcd34aba95844c, type: 3}
   startCube: {fileID: 6419228595586875887}
 --- !u!54 &1051836864282031209
 Rigidbody:

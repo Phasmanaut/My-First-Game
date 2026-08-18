@@ -203,7 +203,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotation: 0.3
-  gameStats: {fileID: 0}
+  hurt1: {fileID: 8300000, guid: fe91a1d244c7f8641a8b611b2529ad20, type: 3}
+  hurt2: {fileID: 8300000, guid: d3f22b8e125479b40a010e584790f48c, type: 3}
+  hurt3: {fileID: 8300000, guid: 341cc04fcbe470b4983d812f3f2b1052, type: 3}
   maxRotationAngle: 20
   rotationSpeed: 100
   returnSpeed: 200

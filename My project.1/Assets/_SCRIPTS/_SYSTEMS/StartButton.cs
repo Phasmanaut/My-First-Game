@@ -46,7 +46,7 @@ public class StartButton : MonoBehaviour
         if (col.gameObject.tag == "Player Projectile")
         {
             gameStats.StartLevelHit();
-            Destroy(startCube);
+            Destroy(this.startCube);
         }
     }
 

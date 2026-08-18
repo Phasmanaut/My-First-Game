@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
@@ -7,10 +8,13 @@ using UnityEngine.UI;
 public class GameStats : MonoBehaviour
 {
     public int playerHealth;
-    public int level;
     public int playerCharge;
-    public float timer;
     public bool playerAlive;
+    
+    public int level;
+    public int levelEnemies;
+    public int points;
+    public float timer;
     public bool timerActive;
 
     public TextMeshPro healthUI;
@@ -19,10 +23,16 @@ public class GameStats : MonoBehaviour
     public TextMeshPro chargeUI;
     public TextMeshPro screenText;
 
+    public AudioClip startSound;
+    public AudioClip loseSound;
+    public AudioClip deathSound;
+    public AudioClip Music;
+    private AudioSource musicSource;
     public GameObject player;
     private GameObject playerInstance;
 
     public GameObject startCube;
+    private GameObject startCubeInstance;
     public ParticleSystem cube_die;
 
     public GameObject enemy_A;
@@ -55,10 +65,18 @@ public class GameStats : MonoBehaviour
         playerHealth = 3;
         playerCharge = 0;
         level = 0;
+        points = 0;
         screenText.text = $"SHOOT THE CUBE TO START!";
 
         playerInstance = Instantiate(player);//instantiates the pref and assigns it so just the instance can be destroyed
-        Instantiate(startCube);
+        startCubeInstance = Instantiate(startCube);
+
+        //Setup music loop
+        musicSource = gameObject.AddComponent<AudioSource>();
+        musicSource.volume = 0.3f;
+        musicSource.clip = Music;
+        musicSource.loop = true;
+        musicSource.Play();
     }
 
     
@@ -85,6 +103,8 @@ public class GameStats : MonoBehaviour
         screenText.text = $" ";
         level++;
         LevelStart(level);
+        AudioSource.PlayClipAtPoint(startSound, transform.position, 5.0f);
+        Destroy(startCubeInstance);
 
     }
 
@@ -96,23 +116,48 @@ public class GameStats : MonoBehaviour
         if (level == 1)
         {
             Console.WriteLine($"LEVEL STARTED: {level}");
+            levelEnemies = 4;
             Instantiate(enemy_A, spawn[1, 0].transform.position, transform.rotation);
             Instantiate(enemy_A, spawn[1, 1].transform.position, transform.rotation);
             Instantiate(enemy_A, spawn[1, 3].transform.position, transform.rotation);
             Instantiate(enemy_A, spawn[1, 4].transform.position, transform.rotation);
-            
+
+        }
+        else if (level == 2)
+        {
+            Console.WriteLine($"LEVEL STARTED: {level}");
+            levelEnemies = 7;
+            Instantiate(enemy_A, spawn[1, 0].transform.position, transform.rotation);
+            Instantiate(enemy_A, spawn[1, 1].transform.position, transform.rotation);
+            Instantiate(enemy_A, spawn[1, 3].transform.position, transform.rotation);
+            Instantiate(enemy_A, spawn[1, 4].transform.position, transform.rotation);
+            Instantiate(enemy_A, spawn[2, 0].transform.position, transform.rotation);
+            Instantiate(enemy_A, spawn[2, 2].transform.position, transform.rotation);
+            Instantiate(enemy_A, spawn[2, 4].transform.position, transform.rotation);
         }
 
     }
 
+
+    public void EnemyDown(int pointGain)
+    {
+        points += pointGain;
+        levelEnemies--;
+        if(levelEnemies <= 0)
+        {
+            LevelEnd();
+        }
+    }
     public void LevelEnd()
     {
-
-
+        screenText.text = $"START LEVEL {level + 1} ";
+        startCubeInstance = Instantiate(startCube);
     }
 
     public void PlayerHit()
     {
+        CameraShake();
+
         if (playerHealth > 1)
         {
             playerHealth--;
@@ -121,6 +166,8 @@ public class GameStats : MonoBehaviour
         {
             playerHealth = 0;
             EndGame();
+            AudioSource.PlayClipAtPoint(loseSound, transform.position, 1.0f);
+            AudioSource.PlayClipAtPoint(deathSound, transform.position, 1.0f);
         }
     }
 
@@ -128,7 +175,7 @@ public class GameStats : MonoBehaviour
     {
         playerAlive = false;
         Destroy(playerInstance);
-
+        musicSource.Stop();
         screenText.color = Color.red;
         screenText.fontSize = 40;
         screenText.text = $"GAME OVER";
@@ -136,5 +183,29 @@ public class GameStats : MonoBehaviour
     }
 
 
+
+    //Camera Shaking below
+    void CameraShake()
+    {
+        StartCoroutine(Shake(0.1f, 0.2f)); // duration, magnitude
+    }
+
+    IEnumerator Shake(float duration, float magnitude)
+    {
+        Camera cam = Camera.main;
+        Vector3 originalPos = cam.transform.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+            float y = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+            cam.transform.localPosition = originalPos + new Vector3(x, y, 0f);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        cam.transform.localPosition = originalPos;
+    }
 
 }

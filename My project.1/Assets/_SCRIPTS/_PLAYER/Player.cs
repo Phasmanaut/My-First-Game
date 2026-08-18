@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     public float rotation = .05f;
 
     private GameStats gameStats;
+    public AudioClip hurt1;
+    public AudioClip hurt2;
+    public AudioClip hurt3;
 
     void Start()
     {
@@ -68,6 +71,10 @@ public class Player : MonoBehaviour
             gameStats.PlayerHit();
             ExplosionEffect explosion = gameObject.AddComponent<ExplosionEffect>();
             explosion.Explode(ExplosionType.Player);
+
+            AudioClip[] hurtSounds = { hurt1, hurt2, hurt3 };
+            AudioClip randomHurt = hurtSounds[UnityEngine.Random.Range(0, hurtSounds.Length)];
+            AudioSource.PlayClipAtPoint(randomHurt, gameStats.transform.position, 1.0f);
         }
     }
 
