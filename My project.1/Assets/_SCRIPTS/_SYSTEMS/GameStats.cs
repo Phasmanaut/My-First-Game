@@ -21,6 +21,7 @@ public class GameStats : MonoBehaviour
     public TextMeshPro timerUI;
     public TextMeshPro levelUI;
     public TextMeshPro chargeUI;
+    public TextMeshPro pointsUI;
     public TextMeshPro screenText;
 
     public AudioClip startSound;
@@ -85,6 +86,7 @@ public class GameStats : MonoBehaviour
         healthUI.text = $"Health: {playerHealth} ";
         levelUI.text = $"Level: {level} ";
         chargeUI.text = $"Charge: {playerCharge} ";
+        pointsUI.text = $" {points} ";
 
         if (playerAlive) //stops timer if player dies
         {
@@ -152,6 +154,7 @@ public class GameStats : MonoBehaviour
     {
         screenText.text = $"START LEVEL {level + 1} ";
         startCubeInstance = Instantiate(startCube);
+        timerActive = false;
     }
 
     public void PlayerHit()

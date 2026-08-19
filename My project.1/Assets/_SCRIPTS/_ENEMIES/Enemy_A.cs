@@ -6,10 +6,11 @@ public class Enemy_A : MonoBehaviour
     
     private GameStats gameStats;
     public GameObject projectile;
+    public GameObject floatingPoints;
     public AudioClip death;
     public AudioClip shoot;
 
-    public int pointWorth = 10;
+    public int points = 50;
     public float speed = 0.5f;
     public float duration = 3f;
     private float timeElapsed = 0f;
@@ -19,7 +20,8 @@ public class Enemy_A : MonoBehaviour
     {
         gameStats = GameObject.FindWithTag("GameStats").GetComponent<GameStats>();
 
-        ExplosionEffect explosion = gameObject.AddComponent<ExplosionEffect>();
+        
+        ExplosionEffect explosion = gameObject.AddComponent<ExplosionEffect>(); //spawn in effect
         explosion.Explode(ExplosionType.Standard);
     }
     void Update() //idle movemets
@@ -53,10 +55,11 @@ public class Enemy_A : MonoBehaviour
     {
         if (col.gameObject.tag == "Player Projectile")
         {
+            Instantiate(floatingPoints, transform.position, Quaternion.identity).GetComponent<FloatingPoints>().pointWorth = points;
             AudioSource.PlayClipAtPoint(death, transform.position, 1.0f);
             ExplosionEffect explosion = gameObject.AddComponent<ExplosionEffect>();
             explosion.Explode(ExplosionType.Standard);
-            gameStats.EnemyDown(pointWorth);
+            gameStats.EnemyDown(points);
             Destroy(this.gameObject);
         }
     }

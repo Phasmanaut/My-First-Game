@@ -277,9 +277,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 2479554322019089208, guid: d1ba4b02a33bf7344ac3280213f7228f, type: 3}
+  floatingPoints: {fileID: 7863017483065356163, guid: 49da3d981e108ef4b935a18a24bd0ba4, type: 3}
   death: {fileID: 8300000, guid: 53146ed43a13e654197a5c01fae1c24c, type: 3}
   shoot: {fileID: 8300000, guid: 384adb934760d1a40b151ebad7174e74, type: 3}
-  pointWorth: 10
+  points: 50
   speed: 0.5
   duration: 3
 --- !u!1 &388781498432764677
