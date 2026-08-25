@@ -12,13 +12,14 @@ public class Bullet : MonoBehaviour
         transform.Translate(0,speed * Time.deltaTime , 0);
     }
 
-    private void OnCollisionEnter(Collision col){
-        if(col.gameObject.tag == "Destroy" || col.gameObject.tag == "Enemy")
+
+ void OnTriggerEnter(Collider col)  //killed on hit
+    {
+        if (col.gameObject.tag == "Destroy" || col.gameObject.tag == "Enemy")
         {
             Destroy (this.gameObject);
         }
     }
-
 
 
 

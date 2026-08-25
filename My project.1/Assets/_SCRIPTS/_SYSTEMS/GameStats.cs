@@ -32,6 +32,11 @@ public class GameStats : MonoBehaviour
     public GameObject player;
     private GameObject playerInstance;
 
+    public GameObject pixelguy1;
+    public GameObject pixelguy2;
+    public GameObject pixelguy3;
+    public GameObject pixelguy4;
+
     public GameObject startCube;
     private GameObject startCubeInstance;
     public ParticleSystem cube_die;
@@ -78,6 +83,7 @@ public class GameStats : MonoBehaviour
         musicSource.clip = Music;
         musicSource.loop = true;
         musicSource.Play();
+        UpdatePixelguy();
     }
 
     
@@ -96,6 +102,8 @@ public class GameStats : MonoBehaviour
                 timer += Time.deltaTime;
             }
         }
+
+        
     }
 
 
@@ -164,11 +172,13 @@ public class GameStats : MonoBehaviour
         if (playerHealth > 1)
         {
             playerHealth--;
+            UpdatePixelguy();
         }
         else 
         {
             playerHealth = 0;
             EndGame();
+            UpdatePixelguy();
             AudioSource.PlayClipAtPoint(loseSound, transform.position, 1.0f);
             AudioSource.PlayClipAtPoint(deathSound, transform.position, 1.0f);
         }
@@ -182,6 +192,32 @@ public class GameStats : MonoBehaviour
         screenText.color = Color.red;
         screenText.fontSize = 40;
         screenText.text = $"GAME OVER";
+
+    }
+
+    public void UpdatePixelguy()
+    {
+            pixelguy1.SetActive(false);
+            pixelguy2.SetActive(false);
+            pixelguy3.SetActive(false);
+            pixelguy4.SetActive(false);
+
+            if(playerHealth ==3)
+            {
+                pixelguy1.SetActive(true);
+            }
+            if(playerHealth ==2)
+            {
+                pixelguy2.SetActive(true);
+            }
+            if(playerHealth ==1)
+            {
+                pixelguy3.SetActive(true);
+            }
+            if(playerHealth ==0)
+            {
+                pixelguy4.SetActive(true);
+            }
 
     }
 

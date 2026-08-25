@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 511237491768322207}
   - component: {fileID: 4660730389683296319}
   - component: {fileID: -4506902337022092965}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: A_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -110,9 +110,9 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -141,7 +141,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 124
   m_CollisionDetection: 0
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 6436321760879998058}
   - component: {fileID: 8449392257595524291}
   - component: {fileID: 1997047694830418548}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: A1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 1661113904969858618}
   - component: {fileID: 4465200462033932484}
   - component: {fileID: 7111978139149623661}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: A3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 3151108235654311981}
   - component: {fileID: 1643065971451528776}
   - component: {fileID: 5675035974336019467}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: A4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 1421193965957222969}
   - component: {fileID: 1512857913734635523}
   - component: {fileID: 1507531095129998837}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: A5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 9024189674078796795}
   - component: {fileID: 7796963497227872659}
   - component: {fileID: 410513334789055965}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: A2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 533652570880294107}
   - component: {fileID: 1511975391261132351}
   - component: {fileID: 3552833963303824572}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: A6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

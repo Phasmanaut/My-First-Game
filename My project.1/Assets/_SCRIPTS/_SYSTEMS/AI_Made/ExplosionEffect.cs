@@ -5,13 +5,11 @@ public class CubeParticle : MonoBehaviour
     private float lifetime;
     private float elapsed = 0f;
     private Vector3 startScale;
-    private Renderer rend;
 
     public void Initialize(float duration)
     {
         lifetime = duration;
         startScale = transform.localScale;
-        rend = GetComponent<Renderer>();
     }
 
     void Update()
@@ -47,9 +45,8 @@ public class FlameParticle : MonoBehaviour
         elapsed += Time.deltaTime;
         float t = elapsed / lifetime;
 
-        Color flickerColor = Color.Lerp(Color.red, new Color(1, 0.5f, 0), Mathf.Sin(elapsed * 10f) * 0.5f + 0.5f);
+        Color flickerColor = Color.Lerp(Color.red, new Color(2, 1, 0), Mathf.Sin(elapsed * 10f) * 0.5f + 0.5f);
         rend.material.color = flickerColor;
-        rend.material.SetColor("_EmissionColor", flickerColor * 2f);
 
         transform.localScale = startScale * (1f - t);
 
@@ -62,9 +59,9 @@ public class FlameParticle : MonoBehaviour
 
 public enum ExplosionType
 {
-    Standard,      // Blue and magenta
-    Player,        // Red, blue, grey
-    Fire           // Just flames
+    Standard,
+    Player,
+    Fire
 }
 
 public class ExplosionEffect : MonoBehaviour
@@ -72,22 +69,6 @@ public class ExplosionEffect : MonoBehaviour
     public int particleCount = 10;
     public float explosionForce = 2f;
     public float particleLifetime = 0.5f;
-
-    public void Explode(ExplosionType type = ExplosionType.Standard)
-    {
-        switch (type)
-        {
-            case ExplosionType.Standard:
-                StandardExplosion();
-                break;
-            case ExplosionType.Player:
-                PlayerExplosion();
-                break;
-            case ExplosionType.Fire:
-                FireExplosion();
-                break;
-        }
-    }
 
     private void StandardExplosion()
     {
@@ -98,6 +79,7 @@ public class ExplosionEffect : MonoBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.position = transform.position;
             cube.transform.localScale = Vector3.one * 0.15f;
+            cube.layer = LayerMask.NameToLayer("ExplosionParticles");
 
             Collider col = cube.GetComponent<Collider>();
             Destroy(col);
@@ -109,11 +91,10 @@ public class ExplosionEffect : MonoBehaviour
             Vector3 randomDir = Random.onUnitSphere;
             rb.linearVelocity = randomDir * explosionForce;
 
+            Color glowColor = isWhite ? new Color(2, 2, 2) : (Random.value > 0.5f ? new Color(0, 1, 2) : new Color(2, 0, 2));
+            
             Renderer renderer = cube.GetComponent<Renderer>();
-            Color glowColor = isWhite ? Color.white : (Random.value > 0.5f ? new Color(0, 0.5f, 1) : new Color(1, 0, 1));
             renderer.material.color = glowColor;
-            renderer.material.SetColor("_EmissionColor", glowColor * 2f);
-            renderer.material.EnableKeyword("_EMISSION");
 
             CubeParticle cp = cube.AddComponent<CubeParticle>();
             cp.Initialize(particleLifetime);
@@ -130,21 +111,16 @@ public class ExplosionEffect : MonoBehaviour
             Color glowColor;
 
             if (rand < 0.6f)
-            {
-                glowColor = Color.red;
-            }
+                glowColor = new Color(2, 0, 0);
             else if (rand < 0.7f)
-            {
-                glowColor = Color.blue;
-            }
+                glowColor = new Color(0, 0, 2);
             else
-            {
-                glowColor = Color.gray;
-            }
+                glowColor = new Color(1.5f, 1.5f, 1.5f);
 
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.position = transform.position;
             cube.transform.localScale = Vector3.one * 0.15f;
+            cube.layer = LayerMask.NameToLayer("ExplosionParticles");
 
             Collider col = cube.GetComponent<Collider>();
             Destroy(col);
@@ -158,8 +134,6 @@ public class ExplosionEffect : MonoBehaviour
 
             Renderer renderer = cube.GetComponent<Renderer>();
             renderer.material.color = glowColor;
-            renderer.material.SetColor("_EmissionColor", glowColor * 2f);
-            renderer.material.EnableKeyword("_EMISSION");
 
             CubeParticle cp = cube.AddComponent<CubeParticle>();
             cp.Initialize(particleLifetime);
@@ -181,6 +155,7 @@ public class ExplosionEffect : MonoBehaviour
             GameObject flame = GameObject.CreatePrimitive(PrimitiveType.Cube);
             flame.transform.position = transform.position;
             flame.transform.localScale = Vector3.one * 0.08f;
+            flame.layer = LayerMask.NameToLayer("ExplosionParticles");
 
             Collider col = flame.GetComponent<Collider>();
             Destroy(col);
@@ -193,12 +168,26 @@ public class ExplosionEffect : MonoBehaviour
             rb.linearVelocity = randomDir * 5f;
 
             Renderer renderer = flame.GetComponent<Renderer>();
-            renderer.material.color = Color.red;
-            renderer.material.SetColor("_EmissionColor", Color.red * 2f);
-            renderer.material.EnableKeyword("_EMISSION");
+            renderer.material.color = new Color(3, 1.5f, 0);
 
             FlameParticle fp = flame.AddComponent<FlameParticle>();
             fp.Initialize(0.3f);
+        }
+    }
+
+    public void Explode(ExplosionType type = ExplosionType.Standard)
+    {
+        switch (type)
+        {
+            case ExplosionType.Standard:
+                StandardExplosion();
+                break;
+            case ExplosionType.Player:
+                PlayerExplosion();
+                break;
+            case ExplosionType.Fire:
+                FireExplosion();
+                break;
         }
     }
 }

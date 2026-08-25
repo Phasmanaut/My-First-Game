@@ -19,7 +19,7 @@ public class Enemy_A : MonoBehaviour
     void Start()
     {
         gameStats = GameObject.FindWithTag("GameStats").GetComponent<GameStats>();
-
+        timeElapsed +=duration/2;//head start to keep enemies centered
         
         ExplosionEffect explosion = gameObject.AddComponent<ExplosionEffect>(); //spawn in effect
         explosion.Explode(ExplosionType.Standard);
@@ -51,7 +51,7 @@ public class Enemy_A : MonoBehaviour
 
 
 
-    void OnCollisionEnter(Collision col)  //killed on hit
+    void OnTriggerEnter(Collider col)  //killed on hit
     {
         if (col.gameObject.tag == "Player Projectile")
         {
