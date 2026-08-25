@@ -92,8 +92,10 @@ public class ExplosionEffect : MonoBehaviour
             rb.linearVelocity = randomDir * explosionForce;
 
             Color glowColor = isWhite ? new Color(2, 2, 2) : (Random.value > 0.5f ? new Color(0, 1, 2) : new Color(2, 0, 2));
-            
+
             Renderer renderer = cube.GetComponent<Renderer>();
+            Shader unlit = Shader.Find("Unlit/Color");
+            renderer.material.shader = unlit;
             renderer.material.color = glowColor;
 
             CubeParticle cp = cube.AddComponent<CubeParticle>();
@@ -133,6 +135,8 @@ public class ExplosionEffect : MonoBehaviour
             rb.linearVelocity = randomDir * explosionForce;
 
             Renderer renderer = cube.GetComponent<Renderer>();
+            Shader unlit = Shader.Find("Unlit/Color");
+            renderer.material.shader = unlit;
             renderer.material.color = glowColor;
 
             CubeParticle cp = cube.AddComponent<CubeParticle>();
@@ -168,6 +172,8 @@ public class ExplosionEffect : MonoBehaviour
             rb.linearVelocity = randomDir * 5f;
 
             Renderer renderer = flame.GetComponent<Renderer>();
+            Shader unlit = Shader.Find("Unlit/Color");
+            renderer.material.shader = unlit;
             renderer.material.color = new Color(3, 1.5f, 0);
 
             FlameParticle fp = flame.AddComponent<FlameParticle>();
