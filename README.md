@@ -1,4 +1,4 @@
-<img width="376" height="112" alt="STELLAHOSTIS_logo1" src="https://github.com/user-attachments/assets/d64c154a-c344-4844-ad1f-2fe98f20a509" >
+<img width="1126" height="335" alt="STELLA-HOSTIS title wip" src="https://github.com/user-attachments/assets/b2d44f81-3b8d-47aa-806f-c12537a23450" />
 
 #
 
