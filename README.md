@@ -10,3 +10,4 @@ It's also a remake of a game I built on Scratch when I was 14. Looking back, it'
 
 Check out the original here:
 https://scratch.mit.edu/projects/191331213/
+<img width="640" height="640" alt="PixelGuyHurt2" src="https://github.com/user-attachments/assets/02f51ed6-9011-4d7d-a7f7-927e93a5fbdd" />
