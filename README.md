@@ -1,4 +1,4 @@
-# ASTRAL INTERCEPTOR
+# STELLA HOSTIS
 
 This is my first game made with Unity and my first time using GitHub.
 
