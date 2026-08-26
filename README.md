@@ -1,7 +1,4 @@
-<img width="94" height="28" alt="STELLAHOSTIS_logo1" src="https://github.com/user-attachments/assets/d64c154a-c344-4844-ad1f-2fe98f20a509" 
-  <p align="center">
- <img src="[images/screenshot.png](https://github.com/user-attachments/assets/d64c154a-c344-4844-ad1f-2fe98f20a509)" width="400" alt="Centered Screenshot">
-</p>/>
+<img width="376" height="112" alt="STELLAHOSTIS_logo1" src="https://github.com/user-attachments/assets/d64c154a-c344-4844-ad1f-2fe98f20a509" >
 
 # STELLA HOSTIS
 
