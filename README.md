@@ -1,6 +1,6 @@
 <img width="376" height="112" alt="STELLAHOSTIS_logo1" src="https://github.com/user-attachments/assets/d64c154a-c344-4844-ad1f-2fe98f20a509" >
 
-# STELLA HOSTIS
+#
 
 This is my first game made with Unity and my first time using GitHub.
 
