@@ -9,7 +9,7 @@ public class BulletSpawner : MonoBehaviour
     public GameObject player;
     Boolean canFire = true;
     float inputSpace;
-    public float cooldown = 1.5f;
+    public float cooldown =1f;
     
     public AudioSource sound_fire;
 
@@ -31,7 +31,7 @@ public class BulletSpawner : MonoBehaviour
                 Instantiate(bullet, transform.position, transform.rotation);
                 sound_fire.Play();
                 canFire = false;
-                cooldown = 1.5f;
+                cooldown =1f;
             }
         }
         else if (!canFire)

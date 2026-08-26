@@ -9,20 +9,20 @@ public class Enemy_A : MonoBehaviour
     public GameObject floatingPoints;
     public AudioClip death;
     public AudioClip shoot;
+    public GameObject Explosion;
 
     public int points = 50;
     public float speed = 0.5f;
     public float duration = 3f;
     private float timeElapsed = 0f;
     private bool moveRight = true;
+    public string explosionType = "EnemyA";
 
     void Start()
     {
         gameStats = GameObject.FindWithTag("GameStats").GetComponent<GameStats>();
         timeElapsed +=duration/2;//head start to keep enemies centered
         
-        ExplosionEffect explosion = gameObject.AddComponent<ExplosionEffect>(); //spawn in effect
-        explosion.Explode(ExplosionType.Standard);
     }
     void Update() //idle movemets
     {
@@ -55,11 +55,11 @@ public class Enemy_A : MonoBehaviour
     {
         if (col.gameObject.tag == "Player Projectile")
         {
-            Instantiate(floatingPoints, transform.position, Quaternion.identity).GetComponent<FloatingPoints>().pointWorth = points;
+            Instantiate(floatingPoints, transform.position, Quaternion.identity).GetComponent<FloatingPoints>().pointWorth = points; //spawn points graphic
+            Instantiate(Explosion, transform.position, Quaternion.identity).GetComponent<Explosion_Effect>().explosionType = explosionType; //spawn Explosion
             AudioSource.PlayClipAtPoint(death, transform.position, 1.0f);
-            ExplosionEffect explosion = gameObject.AddComponent<ExplosionEffect>();
-            explosion.Explode(ExplosionType.Standard);
-            gameStats.EnemyDown(points);
+
+            gameStats.EnemyDown(points);// pass points to gamestats
             Destroy(this.gameObject);
         }
     }

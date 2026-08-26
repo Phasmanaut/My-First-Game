@@ -10,7 +10,9 @@ public class Player : MonoBehaviour
 {
     public float speed = 5f;
     public float rotation = .05f;
+    public string explosionType = "Player";
 
+    public GameObject Explosion;
     private GameStats gameStats;
     public AudioClip hurt1;
     public AudioClip hurt2;
@@ -69,8 +71,7 @@ public class Player : MonoBehaviour
         if (col.gameObject.CompareTag("EnemyProjectile"))
         {
             gameStats.PlayerHit();
-            ExplosionEffect explosion = gameObject.AddComponent<ExplosionEffect>();
-            explosion.Explode(ExplosionType.Player);
+            Instantiate(Explosion, transform.position, Quaternion.identity).GetComponent<Explosion_Effect>().explosionType = explosionType;
 
             AudioClip[] hurtSounds = { hurt1, hurt2, hurt3 };
             AudioClip randomHurt = hurtSounds[UnityEngine.Random.Range(0, hurtSounds.Length)];

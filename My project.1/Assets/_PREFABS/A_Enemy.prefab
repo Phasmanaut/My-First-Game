@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: 10, z: -10}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6436321760879998058}
@@ -280,9 +280,11 @@ MonoBehaviour:
   floatingPoints: {fileID: 7863017483065356163, guid: 49da3d981e108ef4b935a18a24bd0ba4, type: 3}
   death: {fileID: 8300000, guid: 53146ed43a13e654197a5c01fae1c24c, type: 3}
   shoot: {fileID: 8300000, guid: 384adb934760d1a40b151ebad7174e74, type: 3}
+  Explosion: {fileID: 8310371246214944465, guid: ab54a4f2cd849d1499ddd25262ee25d5, type: 3}
   points: 50
   speed: 0.5
   duration: 3
+  explosionType: EnemyA
 --- !u!1 &388781498432764677
 GameObject:
   m_ObjectHideFlags: 0
