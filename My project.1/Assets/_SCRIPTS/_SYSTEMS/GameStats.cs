@@ -17,11 +17,11 @@ public class GameStats : MonoBehaviour
     public float timer;
     public bool timerActive;
 
-    public TextMeshPro healthUI;
-    public TextMeshPro timerUI;
-    public TextMeshPro levelUI;
-    public TextMeshPro chargeUI;
-    public TextMeshPro pointsUI;
+    public TextMeshProUGUI healthUI;
+    public TextMeshProUGUI timerUI;
+    public TextMeshProUGUI levelUI;
+    public TextMeshProUGUI chargeUI;
+    public TextMeshProUGUI pointsUI;
     public TextMeshPro screenText;
 
     public AudioClip startSound;
@@ -90,9 +90,9 @@ public class GameStats : MonoBehaviour
     
     void Update()
     {
-        healthUI.text = $"Health: {playerHealth} ";
-        levelUI.text = $"Level: {level} ";
-        chargeUI.text = $"Charge: {playerCharge} ";
+        healthUI.text = $"{playerHealth} ";
+        levelUI.text = $"Level: \n{level} ";
+        chargeUI.text = $" {playerCharge} ";
         pointsUI.text = $" {points} ";
 
         if (playerAlive) //stops timer if player dies
