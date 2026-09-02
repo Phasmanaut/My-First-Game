@@ -7,7 +7,7 @@ public class AsteroidRotate : MonoBehaviour
 
     void Start()
     {
-        rotationSpeed = Random.Range(5f, 20f);      // random speed
+        rotationSpeed = Random.Range(2f, 15f);      // random speed
         rotationAxis = Random.onUnitSphere;         // random 3D direction
     }
 
