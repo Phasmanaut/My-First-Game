@@ -10,6 +10,12 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(0,speed * Time.deltaTime , 0);
+
+
+        //keeps the bullet in the playing field
+        Vector3 pos = transform.position;
+        pos.z = 0f;
+        transform.position = pos;
     }
 
 
